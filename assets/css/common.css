@@ -1,0 +1,76 @@
+.blind{
+  position: absolute;
+  width: 1px;height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+
+.hidden{
+  overflow: hidden;
+}
+
+.inner{
+  padding: 0 32px;
+}
+
+.fill{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px; 
+  z-index: 10;
+}
+
+.fill .link{
+  
+  position: relative;
+  line-height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  transition: .5s ease-in-out;
+  will-change: transform;
+  border: 1px solid #fff;
+  color: var(--white);
+}
+.fill .link::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-150%);
+  transition: .5s ease-in-out;
+  will-change: transform;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--white);
+}
+.fill .link:hover{
+  border-color: var(--white);
+  color: var(--black);
+  background-color: rgba(175, 175, 175, 0.5);
+
+}
+.fill .link:hover::before{
+  transform: translate(-50%, -50%);
+}
+.col{
+  display: flex;
+  flex: 1;
+}
+.col.left{
+  position: relative;
+}
+.col.left::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--gray04);
+}
